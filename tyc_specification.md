@@ -289,11 +289,10 @@ Where:
 - `<identifier>` is the struct name
 - Each `<type>` must be an explicit type (`int`, `float`, `string`, or another struct type)
 - Each `<member>` is a member name (identifier)
-- **Note:** Struct members cannot use `auto` for type inference - the type must be explicitly declared
-- **Note:** Nested structures (structs within structs) are not supported
+- A struct can have zero or more members.
 
 **Important Rules:**
-- Struct members cannot use `auto` - only explicit types are allowed
+- Struct members must have explicit types - they cannot use `auto` for type inference
 - Struct definitions cannot be nested (no struct declaration inside another struct declaration)
 - However, struct members can be of other struct types (using previously declared struct types)
 - Struct names must be unique in the program
@@ -301,6 +300,8 @@ Where:
 
 For example:
 ```tyc
+struct Empty {};  // Valid: empty struct with no members
+
 struct Point {
     int x;
     int y;
