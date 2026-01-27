@@ -215,6 +215,7 @@ Float literals are of type **float**.
 **String Token Processing:**
 - When a valid string literal is recognized, the lexer automatically removes (strips) the enclosing double quotes from both ends. The token value contains only the string content without the quotes.
 - For error cases (`ILLEGAL_ESCAPE` and `UNCLOSE_STRING`), the lexer removes the opening double quote, but the error message includes the problematic content.
+- For `ILLEGAL_ESCAPE` errors, the error message includes the string content from the beginning (without the opening quote) up to and including the illegal escape sequence (i.e., the backslash and the character that follows it that makes it illegal).
 
 **Error Detection Order:**
 The lexer checks for errors in the following order (first match wins):
